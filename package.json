@@ -8,7 +8,7 @@
       "res:dev": "rescript -w",
       "bundle": "bun build src/Entrypoint.mjs --outfile=dist/bundle.js",
       "bundle:dev": "watchexec -w src -- bun run bundle",
-      "dev": "bun run serve & bun run res:dev & bun run bundle:dev"
+      "dev": "bun run serve & bun run res:dev"
   },
   "private": true,
   "devDependencies": {},
