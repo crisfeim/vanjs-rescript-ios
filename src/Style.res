@@ -1,5 +1,5 @@
-@scope("style") @set external setColorInternal: (Dom.element, string) => unit = "color"
 @scope("style") @set external setAllInternal: (Dom.element, string) => unit = "all"
+@scope("style") @set external setColorInternal: (Dom.element, string) => unit = "color"
 @scope("style") @set external setFontSizeInternal: (Dom.element, string) => unit = "fontSize"
 @scope("style") @set external setCursorInternal: (Dom.element, string) => unit = "cursor"
 @scope("style") @set external setBackgroundInternal: (Dom.element, string) => unit = "background"
@@ -17,6 +17,11 @@
 @scope("style") @set external setPosition: (Dom.element, string) => unit = "position"
 @scope("style") @set external setLeft: (Dom.element, string) => unit = "left"
 @scope("style") @set external setFontWeight: (Dom.element, string) => unit = "fontWeight"
+@scope("style") @set external setMarginBottom: (Dom.element, string) => unit = "marginBottom"
+@scope("style") @set external setBorderRadius: (Dom.element, string) => unit = "borderRadius"
+@scope("style") @set external setListStyle: (Dom.element, string) => unit = "listStyle"
+@scope("style") @set external setOverflow: (Dom.element, string) => unit = "overflow"
+@scope("style") @set external setBoxSizing: (Dom.element, string) => unit = "boxSizing"
 
 let makeHelper = (f: (Dom.element, string) => unit) => {
   (el: Dom.element, value: string): Dom.element => {
@@ -44,3 +49,8 @@ let backgroundColor = setBackgroundColor->makeHelper
 let position = setPosition->makeHelper
 let left = setLeft->makeHelper
 let fontWeight = setFontWeight->makeHelper
+let marginBottom = setMarginBottom->makeHelper
+let borderRadius = setBorderRadius->makeHelper
+let listStyle = setListStyle->makeHelper
+let overflow = setOverflow->makeHelper
+let boxSizing = setBoxSizing->makeHelper

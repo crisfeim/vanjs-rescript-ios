@@ -5,6 +5,7 @@ let helloWorld = () => {
     let count = store(0)
 
     div(
+    p("testing"),
     p(count),
     button("+")
         ->onClick(_ => count.val = count.val + 1),
@@ -13,7 +14,7 @@ let helloWorld = () => {
     )
 }
 
-let someOtherComponent = () => IOSButton.t("Label") ->onClick(_ => alert("hello"))
+let someOtherComponent = () => IOSList.t(~title="List", ~items=["Hello world"], ~cell = (item) => p("hello"))
 
 %%raw(`
 function defineComponent(tagName, domElement) {
