@@ -1,25 +1,21 @@
-@module("./utils/styledTags.js")
-external styledTags: {
-  "div": 'a,
-  "p": 'a,
-  "button": 'a,
-  "span": 'a,
-  "ul": 'a,
-} = "styledTags"
-
-let div = styledTags["div"]
-let p = styledTags["p"]
-let button = styledTags["button"]
-let span = styledTags["span"]
-let ul = styledTags["ul"]
-
-@send external color: (Dom.element, string) => Dom.element = "color"
-
+// Van.res
 type state<'a> = { mutable val: 'a }
 
 @module("vanjs-core")
 external van: {
+  "tags": {
+    "div": 'a,
+    "p": 'a,
+    "button": 'a,
+    "span": 'a,
+    "ul": 'a,
+  },
   "state": 'a => state<'a>
 } = "default"
 
 let store = (x: 'a) => van["state"](x)
+let div = van["tags"]["div"]
+let button = van["tags"]["button"]
+let p = van["tags"]["p"]
+let span = van["tags"]["span"]
+let ul = van["tags"]["ul"]
