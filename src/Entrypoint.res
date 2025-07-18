@@ -1,7 +1,9 @@
 open VanJS
 
-let helloWorld = () => p("Hello world")
-let someOtherComponent = () => p("Some other component")
+let helloWorld = () => p("Hello")
+-> color("brown")
+
+let someOtherComponent = () => p("This is a VanJS WebComponent")
 
 %%raw(`
 function defineComponent(tagName, domElement) {
