@@ -7,10 +7,9 @@ let t = (~title: string, ~items: array<'a> = [], ~cell: ('a) => Dom.element) => 
       ->fontSize("24px")
       ->marginBottom("12px")
 
-    let li_wrapper = (el: Dom.element) => li(el)
     let mappedItems = items
         ->Array.map(cell)
-        ->Array.map(li_wrapper)
+        ->Array.map(el => li(el))
 
     let list = ul(mappedItems)
     ->background("white")
