@@ -20,6 +20,6 @@ type state<'a> = { mutable val: 'a }
 @module("vanjs-core")
 external van: {
   "state": 'a => state<'a>
-} = "vanjs"
+} = "default"
 
 let store = (x: 'a) => van["state"](x)

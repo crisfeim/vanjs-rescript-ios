@@ -1,7 +1,17 @@
 open VanJS
+open Events
 
-let helloWorld = () => p("Hello")
--> color("brown")
+let helloWorld = () => {
+    let count = store(0)
+
+    div(
+    p(count),
+    button("+")
+        ->onClick(_ => count.val = count.val + 1),
+    button("-")
+        ->onClick(_ => count.val = count.val - 1)
+    )
+}
 
 let someOtherComponent = () => p("This is a VanJS WebComponent")
 
