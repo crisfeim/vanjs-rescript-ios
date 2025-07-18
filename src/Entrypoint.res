@@ -5,12 +5,11 @@ let helloWorld = () => {
     let count = store(0)
 
     div(
-    p("testing"),
-    p(count),
-    button("+")
-        ->onClick(_ => count.val = count.val + 1),
-    button("-")
-        ->onClick(_ => count.val = count.val - 1)
+        p(count),
+        button("+")
+            ->onClick(_ => count.val = count.val + 1),
+        button("-")
+            ->onClick(_ => count.val = count.val - 1)
     )
 }
 

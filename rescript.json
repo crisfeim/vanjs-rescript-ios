@@ -9,6 +9,10 @@
     "in-source": true
   },
   "suffix": ".mjs",
-  "bs-dependencies": [],
-  "bsc-flags": []
+  "bs-dependencies": [
+      "@rescript/core"
+  ],
+  "bsc-flags": [
+      "-open RescriptCore"
+  ]
 }

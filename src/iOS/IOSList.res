@@ -7,9 +7,12 @@ let t = (~title: string, ~items: array<'a> = [], ~cell: ('a) => Dom.element) => 
       ->fontSize("24px")
       ->marginBottom("12px")
 
-    let domItems = Belt.Array.map(items, cell)
+    let li_wrapper = (el: Dom.element) => li(el)
+    let mappedItems = items
+        ->Array.map(cell)
+        ->Array.map(li_wrapper)
 
-    let list = ul(domItems)
+    let list = ul(mappedItems)
     ->background("white")
     ->borderRadius("8px")
     ->listStyle("none")
