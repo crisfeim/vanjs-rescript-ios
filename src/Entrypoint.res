@@ -13,7 +13,7 @@ let helloWorld = () => {
     )
 }
 
-let someOtherComponent = () => p("This is a VanJS WebComponent")
+let someOtherComponent = () => IOSButton.t("Label") ->onClick(_ => alert("hello"))
 
 %%raw(`
 function defineComponent(tagName, domElement) {
