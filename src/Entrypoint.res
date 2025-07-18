@@ -1,5 +1,6 @@
 open VanJS
 open Events
+open Style
 
 let helloWorld = () => {
     let count = store(0)
@@ -13,7 +14,12 @@ let helloWorld = () => {
     )
 }
 
-let someOtherComponent = () => IOSList.t(~title="List", ~items=["Hello world"], ~cell = (item) => p("hello"))
+let someOtherComponent = () =>
+    IOSList.t(~title="List", ~items=["Item 1", "Item 2", "Item 3"], ~cell = (item) => p(item))
+    -> width("300px")
+    -> aspectRatio("9 / 16")
+    -> marginInline("auto")
+
 
 %%raw(`
 function defineComponent(tagName, domElement) {

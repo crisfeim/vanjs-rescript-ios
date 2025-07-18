@@ -22,6 +22,16 @@
 @scope("style") @set external setListStyle: (Dom.element, string) => unit = "listStyle"
 @scope("style") @set external setOverflow: (Dom.element, string) => unit = "overflow"
 @scope("style") @set external setBoxSizing: (Dom.element, string) => unit = "boxSizing"
+@scope("style") @set external setAspectRatio: (Dom.element, string) => unit = "aspectRatio"
+@scope("style") @set external setMarginInline: (Dom.element, string) => unit = "marginInline"
+@scope("style") @set external setFontFamily: (Dom.element, string) => unit = "fontFamily"
+
+@scope("classList")
+@send external add: (Dom.element, string) => unit = "add"
+let className = (el: Dom.element, className: string) => {
+    add(el, className)
+    el
+}
 
 let makeHelper = (f: (Dom.element, string) => unit) => {
   (el: Dom.element, value: string): Dom.element => {
@@ -54,3 +64,6 @@ let borderRadius = setBorderRadius->makeHelper
 let listStyle = setListStyle->makeHelper
 let overflow = setOverflow->makeHelper
 let boxSizing = setBoxSizing->makeHelper
+let aspectRatio = setAspectRatio->makeHelper
+let marginInline = setMarginInline->makeHelper
+let fontFamily = setFontFamily->makeHelper

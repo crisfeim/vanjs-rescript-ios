@@ -9,7 +9,8 @@ external van: {
     "button": 'a,
     "span": 'a,
     "ul": 'a,
-    "li": 'a
+    "li": 'a,
+    "style": 'a
   },
   "state": 'a => state<'a>
 } = "default"
@@ -21,3 +22,4 @@ let p = van["tags"]["p"]
 let span = van["tags"]["span"]
 let ul = van["tags"]["ul"]
 let li = van["tags"]["li"]
+let style = van["tags"]["style"]

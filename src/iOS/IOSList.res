@@ -18,7 +18,49 @@ let t = (~title: string, ~items: array<'a> = [], ~cell: ('a) => Dom.element) => 
     ->listStyle("none")
     ->padding("0")
 
-    div(titleView, list)
+    let style = style(`
+    .ios-list p {
+        margin: 0;
+    }
+    .ios-list ul li:hover::before {
+        content: '';
+        position: absolute;
+        left: 0;
+        right: 0;
+        top: 0;
+        bottom: -1px;
+        background: #D2D1D7;
+        border-radius: inherit;
+        z-index: -1;
+    }
+    .ios-list ul li {
+        position: relative;
+        padding: 8px 16px;
+        transition: background 0.2s ease;
+        z-index: 1;
+    }
+    .ios-list ul li:not(:first-child)::after {
+        content: '';
+        position: absolute;
+        left: 16px;
+        right: 0;
+        top: 0;
+        height: 0.5px;
+        background-color: #D2D1D7;
+    }
+    .ios-list ul li::before {
+        transition: background 0.2s ease;
+    }
+    .ios-list ul li:first-child {
+        border-top-left-radius: 8px;
+        border-top-right-radius: 8px;
+    }
+    .ios-list ul li:last-child {
+        border-bottom-left-radius: 8px;
+        border-bottom-right-radius: 8px;
+    }
+    `)
+    div(style, titleView, list)
     ->background("#efeef5")
     ->color("black")
     ->cursor("default")
@@ -27,4 +69,6 @@ let t = (~title: string, ~items: array<'a> = [], ~cell: ('a) => Dom.element) => 
     ->height("100%")
     ->padding("16px")
     ->boxSizing("border-box")
+    ->fontFamily("sans-serif")
+    ->className("ios-list")
 }
